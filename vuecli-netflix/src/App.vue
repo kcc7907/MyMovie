@@ -1,16 +1,31 @@
 <template>
   <div id="app">
-    <movie-info title="Original" :url="baseUrl" :req="requests.fetchNetflixOriginals" />
-    <movie-info title="ActionMovies" :url="baseUrl" :req="requests.fetchActionMovies" />
-    <div class="alert alert-success">This is a sweet success message</div>
-    <button type="button" class="btn btn-primary">Bootstrap button</button>
-    <Pagination/>
+    <Navbar />
+    <Movie-info title="Original" :url="baseUrl" :req="requests.fetchNetflixOriginals" />
+    <Movie-info title="ActionMovies" :url="baseUrl" :req="requests.fetchActionMovies" />
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="tabs col-2 ">
+          <Genres />
+        </div>
+        <div class="main col-10 ">
+          <Movies title="ComedyMovies" :url="baseUrl" :req="requests.fetchComedyMovies"/>
+        </div>
+      </div>
+    </div>
+    <footer class="container text-center">
+      copyright@all
+    </footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
   import MovieInfo from "./components/MovieInfo.vue";
-  import Pagination from "./components/Pagination.vue";
+  import Movies from "./components/Movies.vue";
+  import Navbar from "./components/Navbar.vue";
+  import Genres from "./components/Genres.vue";
+  import store from './store';
 
   const baseUrl= "https://api.themoviedb.org/3";
   const m = "a54618fe0fbb1c35737e9a35ec28e5de";
@@ -27,20 +42,39 @@
   
   export default {
     name: "App",
+    store,
     data() {
       return {
         requests:requests,
-        baseUrl:baseUrl
+        baseUrl:baseUrl,
+        data:store.state.kind,
+        req:this.$store.state.requests,
       };
     },
     components: {
       MovieInfo,
-      Pagination
+      Movies,
+      Navbar,
+      Genres
+    },
+    mounted() {
+      
     },
   };
 </script>
 <style>
   html{
-    overflow-x: hidden;
+    overflow-x: hidden;   
+  }
+  #app{
+    background: #222;
+  }
+  .container-fluid *{
+    box-sizing: border-box;
+    border:1px solid red;
+  }
+  footer{
+    color: white;
+    border:1px solid white;
   }
 </style>

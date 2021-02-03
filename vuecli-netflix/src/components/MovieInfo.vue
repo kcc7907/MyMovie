@@ -20,7 +20,6 @@
     },
     mounted() {
       this.$axios.get(this.url + this.req).then((res) => {
-        console.log(res.data);
         this.infos = res.data.results;
       });
     },
