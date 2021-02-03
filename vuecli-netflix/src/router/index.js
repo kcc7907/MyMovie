@@ -6,6 +6,7 @@ import Movies from '../views/Movies.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  
   {
     path: '/',
     name: 'Home',
@@ -22,12 +23,12 @@ const routes = [
   {
     path: '/Genres/:userId',
     name: 'Genres',
-    num:':num',
     component: Movies,
   },
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

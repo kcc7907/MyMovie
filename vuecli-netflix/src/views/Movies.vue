@@ -1,11 +1,11 @@
 <template>
   <div class="info">
-    <h1>{{$route.params.num}}</h1>
-    <!-- <h1>{{ title }}</h1> -->
+    <h1>{{ title }}</h1>
     <div class="container-fluid">
       <div class="row align-items-center">
         <div v-for="item in infos" :key="item.id" class="col-3 justify-content-center d-flex p-3">
-          <img :src="src + item.poster_path" alt=""  class="pic"/>
+          <img :src="src + item.poster_path" alt=""  class="pic" 
+          data-bs-toggle="tooltip" data-bs-placement="bottom" :title="item.title"/>
         </div>
       </div>
     </div>
@@ -20,21 +20,44 @@
     name: "Movies",
     data() {
       return {
+        title:'123',
         infos: [],
         src: "https://image.tmdb.org/t/p/w500",
+        kindIndex:0,
+        kindApi:'',
+        baseUrl: this.$store.state.baseUrl
       };
     },
-    mounted() {
-      // this.$axios.get(this.url + this.req).then((res) => {
-      //   this.infos = res.data.results;
-      // });
-      console.log(name);
+    methods: {
+      getMovies(){
+        this.$axios.get(this.baseUrl+this.kindApi).then((res) => {
+          // console.log(res.data);
+          this.infos = res.data.results;
+        });
+      }
     },
-    props: {
-      // url: String,
-      // req: String,
-      // title: String,
-      name: String,
+    mounted() {
+      const that = this;
+      this.kindApi = this.$store.state.kind[this.kindIndex].api;
+      this.title = this.$store.state.kind[this.kindIndex].title;
+      this.getMovies()
+      let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new that.bootstrap.Tooltip(tooltipTriggerEl)
+      });
+    },
+    beforeRouteUpdate (to, from, next) {  
+      to,from,next;
+      next();
+      this.kindIndex = this.$route.params.num;
+      this.kindApi = this.$store.state.kind[this.kindIndex].api;
+      this.getMovies()
+      console.log(234);
+    },
+    beforeRouteEnter (to, from, next) {
+      // ...
+      console.log(123);
+      next()
     },
     components:{
       Pagination
@@ -45,9 +68,13 @@
 <style>
   .pic{
     height: 400px;
-    transition: 1s;
+    transition: .8s;
   }
   .pic:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+  }
+  .tooltip{
+    position: fixed;
+
   }
 </style>

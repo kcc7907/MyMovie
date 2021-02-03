@@ -1,0 +1,60 @@
+<!-- 
+
+
+  [1,2,3,4,5]
+
+
+
+ -->
+
+
+<script>
+
+  function checkLight(array) {
+    let count = 0;
+    let answer = 0;
+    let light = [false, false, false, false, false]
+    array.forEach((e, i) => {
+      light[e - 1] = true;
+      for (let x = e - 1; x >= 0; x--) {
+        if (light[x] === true) {
+          count++;
+          //console.log(count);
+        }
+      }
+      //console.log('c=' + count);
+      if (e === count) answer++;
+      count = 0;
+    });
+    //console.log('a='+answer);
+    return answer
+  }
+
+
+  function countNum(num) {
+    let count = 0;
+    let str = new String(num);
+    let newNum = str.split('').map((a, b) => a = 9).join('');
+    for (let i = 1; i <= newNum; i++) {
+      if (i % 3 === 0) count++;
+    }
+    console.log(count);
+  }
+
+  function countNum(num) {
+    let count = 0;
+    let str = new String(num);
+    let newNum = str.split('').map((a, b) => a = 9).join('');
+    for (let i = 1; i <= newNum; i++) {
+      if (i % 3 === 0) count++;
+    }
+    console.log(count);
+  }
+
+
+
+
+
+
+
+</script>
