@@ -1,0 +1,112 @@
+<html>
+<style>
+    #main {
+        position: relative;
+    }
+
+    #header {
+        height: 100vh;
+    }
+
+    #body {
+        position: absolute;
+        top: 50%;
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+
+    }
+</style>
+
+<body>
+    <div id="main" style="height: 100%;">
+        <div id="header">
+            <ul>
+                <li v-for="(item, index) in data" :key="index">
+                    <div>{{item.name}}</div>
+                    <div>{{foods[index]}}</div>
+                    <div>{{item.price}}</div>
+                </li>
+            </ul>
+        </div>
+        <!-- <div id="body">body</div>
+        <div id="footer">footer</div> -->
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'
+        integrity='sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=='
+        crossorigin='anonymous'></script>
+    <script>
+        const mockdata = () => {
+            return new Promise((resolve, reject) => {
+                resolve(data());
+            });
+        };
+
+        const data = () => {
+            return [
+                {
+                    name: "Mushroom Wild",
+                    ingredients: ["Mushroom"],
+                    price: 123.0
+                },
+                {
+                    name: "Meat Supreme",
+                    ingredients: [
+                        "Chicken",
+                        "Bacon",
+                        "Mushroom",
+                        "Onion",
+                        "Ham",
+                        "Pork",
+                        "Beef",
+                        "Pepperoni",
+                        "Tomato Sauce"
+                    ],
+                    price: 169.0
+                },
+                {
+                    name: "Cheese Lover (Tomato Sauce)",
+                    ingredients: ["Mozzarella Cheese", "Tomato Sauce"],
+                    price: 183.0
+                },
+                {
+                    name: "Hawaiian",
+                    ingredients: ["Pepperoni", "Beef", "Pineapple"],
+                    price: 203.0
+                }
+            ];
+        };
+
+        new Vue({
+            el: '#header',
+            data() {
+                return {
+                    data: [],
+                    foods: []
+                }
+            },
+            mounted() {
+                let str='';
+                let res = mockdata().then(res => {
+                    this.data = res;
+                    res.forEach(el => {
+                        el.ingredients.forEach((f, i) => {
+                            if (i==0){
+                                str = f
+                            }else if(i== el.ingredients.length-1){
+                                str+=` & ${f}`
+                            }else{
+                                str += `, ${f}`
+                            }
+                        })
+                        this.foods.push(str);
+                    });
+                })
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -47,16 +47,19 @@
       });
     },
     beforeRouteUpdate (to, from, next) {  
-      to,from,next;
+      to,from;
+      console.log(from);
+      // this.kindIndex = this.$route.params.num;
+      // console.log(this.kindIndex);
+      // console.log(this.$store.state.kind[this.kindIndex]);
+      // this.kindApi = this.$store.state.kind[this.kindIndex].api;
+      // this.getMovies()
+      // console.log(`beforeRouteUpdate`);
       next();
-      this.kindIndex = this.$route.params.num;
-      this.kindApi = this.$store.state.kind[this.kindIndex].api;
-      this.getMovies()
-      console.log(234);
     },
     beforeRouteEnter (to, from, next) {
       // ...
-      console.log(123);
+      console.log(`beforeRouteEnter`);
       next()
     },
     components:{

@@ -55,7 +55,6 @@
 
       //載入完成執行區塊
       }
-        console.log(document.readyState);
       }
     },
   };
