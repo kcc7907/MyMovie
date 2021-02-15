@@ -3,11 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-// import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import * as bootstrap from 'bootstrap'
 // import 'minireset.css/minireset.min.css'
-//"site": "kccflix",
+// import 'bootstrap'
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.prototype.bootstrap = bootstrap
