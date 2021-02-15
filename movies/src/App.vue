@@ -8,25 +8,33 @@
       <router-link :to="{name:'user',params:{userId:'動作',num:0}}">動作</router-link>
       <router-link :to="{name:'user',params:{userId:'動畫',num:0}}">動畫</router-link>
     </div> -->
-    <div>
+    <!-- <div>
       <router-link v-for="(item, index) in kind" :key="index" :to="{name:'kind',params:{kind:item.title,num:index}}">{{item.title}}</router-link>
-    </div>
-    <router-view name="a"/>
-    <router-view name="b"/>
+    </div> -->
+    <!-- <router-view name="a"/>
+    <router-view name="b"/> -->
+    <!-- <router-view name="header"> -->
+    <Navbar/>
+    <router-view name="Home" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return{
-      kind:this.$store.state.kind
-    }
-  },
-  mounted() {
-      console.log(this.kind);
-  },
-}
+  import Navbar from "./views/header/Navbar.vue";
+
+  export default {
+    data(){
+      return{
+        kind:this.$store.state.kind
+      }
+    },
+    mounted() {
+        console.log(this.kind);
+    },
+    components: {
+        Navbar,
+    },
+  }
 </script>
 
 <style lang="scss">
