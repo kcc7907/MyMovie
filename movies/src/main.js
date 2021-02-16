@@ -8,7 +8,7 @@ import * as bootstrap from 'bootstrap'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
-Vue.prototype.bootstrap = bootstrap
+Vue.prototype.$bootstrap = bootstrap
 
 new Vue({
   router,

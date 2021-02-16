@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Movies from '../views/Movies.vue'
+import Genres from '../views/movies/Genres.vue'
 // import Kind from '../views/Kind.vue'
 // import Navbar from '../views/header/Navbar.vue'
 
@@ -24,16 +26,33 @@ const routes = [
   //   component: Navbar
   // },
   {
-    path:'/',
-    name:'Home',
+    path: '/',
+    name: 'Home',
     components: {
-      Home:Home
+      Home,
+      Genres
     },
     // props:{ 
     //   b: true
     // } 
   },
-  
+  {
+    path: '/movies',
+    name: 'Movies',
+    components: {
+      Movies
+    },
+  },
+  {
+    path: '/movies?i=:num&:userId',
+    name: 'Genres',
+    components: {
+      Movies
+    },
+    props:{ 
+      Movies: true
+    } 
+  },
 ]
 
 const router = new VueRouter({

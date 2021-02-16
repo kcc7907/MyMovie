@@ -14,6 +14,9 @@ const requests = {
   fetchHorrorMovies: "/discover/movie?api_key=".concat(m, "&with_genres=27&language=zh-TW"),
   fetchRomanceMovies: "/discover/movie?api_key=".concat(m, "&with_genres=10749&language=zh-TW"),
   fetchDocumentaries: "/discover/movie?api_key=".concat(m, "&with_genres=99&language=zh-TW"),
+  nowPlaying: `${baseUrl}/movie/now_playing?api_key=${m}&language=zh-TW`,
+  topRated: `${baseUrl}/movie/top_rated?api_key=${m}&language=zh-TW`,
+  latest: `${baseUrl}/movie/upcoming?api_key=${m}&language=zh-TW`
 };
 const kind =
   [
@@ -120,6 +123,7 @@ export default new Vuex.Store({
     requests: requests,
     baseUrl: baseUrl,
     key: m,
+    imgSrc: "https://image.tmdb.org/t/p/w500"
   },
   mutations: {
   },
