@@ -79,6 +79,6 @@
 <style lang="scss" scoped>
   .carousel-item {
     overflow: hidden;
-    max-height: 500px;
+    max-height: 560px;
   }
 </style>

@@ -2,10 +2,10 @@
   <div class="movies">
     <div class="container-fluid">
       <div class="row">
-        <div class="tabs col-2">
+        <div class="tabs col-md-2 col-4">
           <Genres />
         </div>
-        <div class="main col-10">
+        <div class="main col-md-10 col-8">
           <Info :num="num" :kindApi="kindApi" :title="title"/>
         </div>
       </div>
@@ -48,5 +48,8 @@
 <style lang="scss" scoped>
   .movies{
     margin-top: 10px;
+    .tabs{
+      position: relative;
+    }
   }
 </style>

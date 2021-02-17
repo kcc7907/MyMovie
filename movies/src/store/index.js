@@ -123,7 +123,8 @@ export default new Vuex.Store({
     requests: requests,
     baseUrl: baseUrl,
     key: m,
-    imgSrc: "https://image.tmdb.org/t/p/w500"
+    imgSrc: "https://image.tmdb.org/t/p/w500",
+    src: "https://image.tmdb.org/t/p/original",
   },
   mutations: {
   },

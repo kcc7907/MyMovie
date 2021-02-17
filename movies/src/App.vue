@@ -3,6 +3,7 @@
     <Header />
     <router-view name="Home" />
     <router-view name="Movies" />
+    <router-view name="OverView" />
     <footer class="container text-center"><p>Copyright © All Rights Reserved</p></footer>
   </div>
 </template>

@@ -57,4 +57,9 @@
       }
     }
   }
+  @media screen and(max-width : 1200px) {
+    h3{
+      text-align: center ;
+    }
+  }
 </style>

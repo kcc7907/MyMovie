@@ -3,10 +3,10 @@
     <Carousel />
     <div class="container-fluid">
       <div class="row">
-        <div class="latest col-9">
+        <div class="latest col-xl-9">
           <Latest />
         </div>
-        <div class="rank col-3">
+        <div class="rank col-xl-3">
           <Toprated />
         </div>
       </div>

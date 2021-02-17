@@ -6,7 +6,7 @@
         <div
           v-for="item in infos"
           :key="item.id"
-          class="col-3 justify-content-center d-flex p-3"
+          class="justify-content-center d-flex p-3 col-xl-3 col-lg-4 col-md-6"
         >
           <img
             :src="src + item.poster_path"
@@ -26,7 +26,7 @@
 <script>
   export default {
     name: "Info",
-    props: ["num",'kindApi','title'],
+    props: ["num", "kindApi", "title"],
     data() {
       return {
         infos: [],
@@ -46,9 +46,9 @@
       this.getMovies();
     },
     watch: {
-      kindApi(){
+      kindApi() {
         this.getMovies();
-      }
+      },
     },
   };
 </script>
@@ -63,5 +63,10 @@
   }
   .tooltip {
     position: fixed;
+  }
+  @media screen and (max-width:576px) {
+    .pic {
+      width: 220px;
+    }
   }
 </style>

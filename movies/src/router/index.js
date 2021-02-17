@@ -2,46 +2,21 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Movies from '../views/Movies.vue'
-import Genres from '../views/movies/Genres.vue'
-// import Kind from '../views/Kind.vue'
-// import Navbar from '../views/header/Navbar.vue'
+import OverView from '../views/OverView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
 
-  // {
-  //   path:'/movie?i=:num?&:kind',
-  //   name:'kind',
-  //   components: {
-  //     b:Kind
-  //   },
-  //   props:{ 
-  //     b: true
-  //   } 
-  // },
-  // {
-  //   path: '/',
-  //   name: 'navbar',
-  //   component: Navbar
-  // },
   {
     path: '/',
     name: 'Home',
     components: {
-      Home,
-      Genres
+      Home
     },
-    // props:{ 
-    //   b: true
-    // } 
-  },
-  {
-    path: '/movies',
-    name: 'Movies',
-    components: {
-      Movies
-    },
+    props: {
+      Home: true
+    } 
   },
   {
     path: '/movies?i=:num&:userId',
@@ -51,6 +26,17 @@ const routes = [
     },
     props:{ 
       Movies: true
+    } 
+  },
+  {
+    // path: '/movie/:title&:id',
+    path: '/OverView',
+    name: 'OverView',
+    components: {
+      OverView
+    },
+    props:{ 
+      OverView: true
     } 
   },
 ]
