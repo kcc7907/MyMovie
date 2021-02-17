@@ -1,8 +1,8 @@
 <template>
   <div class="Genres">
-    <h1>電影分類</h1>
-    <div class="routes list-group">
-      <router-link v-for="(item,index) in kind" :key="item.id" class="list-group-item text-center" :to="{ name: 'Genres', params: { userId: `${item.title}`,num:`${index}` }}">{{item.title}}</router-link>
+    <h3 class="text-center">電影分類</h3>
+    <div class="routes list-group list-group-flush">
+      <router-link v-for="(item,index) in kind" :key="item.id" class="list-group-item text-center" :to="{ name: 'Genres', params: { userId: `${item.title}`,num:`${index}` }}"><p>{{item.title}}</p></router-link>
     </div>
   </div >
 </template>
@@ -17,3 +17,24 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+ .Genres{
+   p{
+     margin: 0;
+   }
+  .list-group-item{
+    background: #000 !important;
+    border-color:rgba(70, 70, 70, 0.7) !important;
+    :hover{
+      color: white;
+      background:rgba(70, 70, 70, 0.7);
+    }
+    &.router-link-exact-active {
+      p{
+      color: white !important;
+      }
+    }
+  }
+ }
+</style>

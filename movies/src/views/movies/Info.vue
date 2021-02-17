@@ -1,7 +1,7 @@
 <template>
   <div class="info">
-    <h1>{{ title }}</h1>
-    <div class="container-fluid">
+    <h3 class="text-center">{{ title }}</h3>
+    <div class="container-fluid p-0">
       <div class="row align-items-center">
         <div
           v-for="item in infos"

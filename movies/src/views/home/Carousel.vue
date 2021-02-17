@@ -75,3 +75,10 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  .carousel-item {
+    overflow: hidden;
+    max-height: 500px;
+  }
+</style>

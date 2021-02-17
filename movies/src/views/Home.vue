@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <Carousel />
     <div class="container-fluid">
       <div class="row">
@@ -45,13 +45,8 @@
   };
 </script>
 
-<style lang="scss">
-  .rank {
-    border: solid 1px red;
-    height: 200px;
-  }
-  .carousel-item {
-    overflow: hidden;
-    max-height: 500px;
+<style lang="scss" scoped>
+  .container-fluid {
+    margin-top: 10px;
   }
 </style>

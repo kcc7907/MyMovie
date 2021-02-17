@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="movies">
     <div class="container-fluid">
       <div class="row">
         <div class="tabs col-2">
@@ -45,8 +45,8 @@
   };
 </script>
 
-<style lang="scss">
-  .main {
-    border: 1px solid red;
+<style lang="scss" scoped>
+  .movies{
+    margin-top: 10px;
   }
 </style>
