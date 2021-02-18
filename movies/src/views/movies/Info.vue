@@ -8,14 +8,21 @@
           :key="item.id"
           class="justify-content-center d-flex p-3 col-xl-3 col-lg-4 col-md-6"
         >
-          <img
-            :src="src + item.poster_path"
-            alt=""
-            class="pic"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            :title="item.title"
-          />
+          <router-link
+            :to="{
+              name: 'OverView',
+              params: { id: item.id, title: item.title },
+            }"
+          >
+            <img
+              :src="src + item.poster_path"
+              alt=""
+              class="pic"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              :title="item.title"
+            />
+          </router-link>
         </div>
       </div>
     </div>
@@ -64,7 +71,7 @@
   .tooltip {
     position: fixed;
   }
-  @media screen and (max-width:576px) {
+  @media screen and (max-width: 576px) {
     .pic {
       width: 220px;
     }

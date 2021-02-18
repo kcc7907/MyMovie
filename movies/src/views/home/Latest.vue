@@ -3,13 +3,20 @@
     <h3>即將上映</h3>
     <ul class="d-flex">
       <li v-for="(item, index) in datas" :key="index" class="">
-        <div class="latest">
-          <img
-            :src="src + item.poster_path"
-            :alt="item.title"
-            class="img-fluid"
-          />
-        </div>
+        <router-link
+          :to="{
+            name: 'OverView',
+            params: { id: item.id, title: item.title },
+          }"
+        >
+          <div class="latest">
+            <img
+              :src="src + item.poster_path"
+              :alt="item.title"
+              class="img-fluid"
+            />
+          </div>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -58,8 +65,8 @@
     }
   }
   @media screen and(max-width : 1200px) {
-    h3{
-      text-align: center ;
+    h3 {
+      text-align: center;
     }
   }
 </style>

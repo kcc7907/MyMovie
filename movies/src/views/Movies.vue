@@ -34,12 +34,10 @@
     },
     beforeRouteUpdate(to, from, next) {
       // to,from;
-      console.log("up");
       next();
     },
     beforeRouteEnter(to, from, next) {
       // ...
-      console.log(`en`);
       next();
     },
   };

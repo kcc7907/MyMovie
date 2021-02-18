@@ -22,15 +22,22 @@
         :key="item.id"
         :class="{ 'carousel-item': true, active: index == 0 }"
       >
-        <img
-          :src="src + item.backdrop_path"
-          class="d-block w-100"
-          :alt="item.title"
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h3>現正熱映</h3>
-          <h5>{{ item.title }}</h5>
-        </div>
+        <router-link
+          :to="{
+            name: 'OverView',
+            params: { id: item.id, title: item.title },
+          }"
+        >
+          <img
+            :src="src + item.backdrop_path"
+            class="d-block w-100"
+            :alt="item.title"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>現正熱映</h3>
+            <h5>{{ item.title }}</h5>
+          </div>
+        </router-link>
       </div>
     </div>
     <button

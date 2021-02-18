@@ -16,29 +16,30 @@ const routes = [
     },
     props: {
       Home: true
-    } 
+    }
   },
   {
-    path: '/movies?i=:num&:userId',
+    path: '/movies/i=:num&:userId',
     name: 'Genres',
     components: {
-      Movies
+      Movies,
     },
-    props:{ 
+    props: {
       Movies: true
-    } 
+    }
   },
   {
     // path: '/movie/:title&:id',
-    path: '/OverView',
+    path: '/OverView/:id&:title',
     name: 'OverView',
     components: {
       OverView
     },
-    props:{ 
+    props: {
       OverView: true
-    } 
+    }
   },
+
 ]
 
 const router = new VueRouter({

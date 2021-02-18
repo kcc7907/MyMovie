@@ -8,7 +8,7 @@
         class="list-group-item text-center"
         :to="{
           name: 'Genres',
-          params: { userId: `${item.title}`, num: `${index}` },
+          params: { userId: item.title, num: index },
         }"
         ><p>{{ item.title }}</p></router-link
       >
