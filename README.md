@@ -32,7 +32,6 @@ https://kccproject-fe95f.web.app/
 
 ### 簡述 :
 
-
 個人學習&練習用作品，用 vue-cli整合 vuex和 vue-router做的SPA網站，
 排版用的是Boostrap5套件 ，電影相關資訊從國外的 TMDB提供的API、Youtube API串接，最後採用Firebase架設網站。
 
